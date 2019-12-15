@@ -13,7 +13,7 @@ fi
 
 eval set -- "${PARSED}"
 
-TOPIC_NAME="0"
+TOPIC_NAME="test"
 ACTION="describe"
 
 while true; do
@@ -32,10 +32,5 @@ while true; do
       ;;
   esac
 done
-
-if [[ "${TOPIC_NAME}" == "0" ]]; then
-  echo "Error: Please add -t/--topic with your topic name"
-  exit 2
-fi
 
 docker exec -it kafka kafka-console-producer.sh --topic=${TOPIC_NAME} --broker-list :9092
